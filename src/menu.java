@@ -8,7 +8,7 @@ public class menu {
         System.out.println("2. Determinan");
         System.out.println("3. Matriks balikan");
         System.out.println("4. Interpolasi Polinom");
-        System.out.println("1. Regresi linier berganda");
+        System.out.println("5. Regresi linier berganda");
         System.out.println("6. Keluar");
         System.out.println("Pilih menu : ");
         input = sc.nextInt();
