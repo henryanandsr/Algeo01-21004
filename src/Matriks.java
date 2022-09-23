@@ -1,4 +1,4 @@
-import java.util.scanner;
+import java.util.Scanner;
 
 public class Matriks {
     public static double[][] bacaMatriks(int row, int col){
