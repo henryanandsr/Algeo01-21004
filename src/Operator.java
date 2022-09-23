@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Operator {
     public static void printMatrix(double[][] m){
         for(int i=0;i<m.length;i++){
@@ -11,5 +13,15 @@ public class Operator {
             }
             System.out.println("");
         }
+    }
+    public static double[][] bacaMatriks(int row, int col){
+        double arr[][] = new double[row][col];
+        Scanner s = new Scanner(System.in);
+        for (int i = 0; i < row; ++i){
+            for (int j = 0; j < col; ++j){
+                arr[i][j] = s.nextDouble();
+            }
+        }
+        return arr;
     }
 }
