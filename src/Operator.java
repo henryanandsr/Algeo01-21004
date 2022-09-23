@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import static java.lang.Math.abs;
+
 public class Operator {
     /*
     prosedur ini berfungsi untuk print matrix
@@ -11,10 +13,18 @@ public class Operator {
         for(int i=0;i<m.length;i++){
             for(int j=0;j<m[0].length;j++){
                 if(j==0){
-                    System.out.print(m[i][j]);
+                    if(m[i][j]==0){
+                        System.out.print(abs(m[i][j]));
+                    }else{
+                        System.out.print(m[i][j]);
+                    }
                 }
                 if(j>0){
-                    System.out.print(" "+m[i][j]);
+                    if(m[i][j]==0) {
+                        System.out.print(" " + abs(m[i][j]));
+                    }else{
+                        System.out.print(" " + m[i][j]);
+                    }
                 }
             }
             System.out.println("");

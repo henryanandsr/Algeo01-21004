@@ -17,7 +17,7 @@ public class Gauss {
                     jumNol--;
                 }
             }
-            if((jumNol>i)&&(tools.isNotAllNol(m,i,i))){
+            if((jumNol>i+1)&&(tools.isNotAllNol(m,i,i))){
                 tools.changeRow(m,i);
             }
         }
