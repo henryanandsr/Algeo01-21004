@@ -1,7 +1,6 @@
 public class GaussJordan {
-    private static Gauss gauss = new Gauss();
     public static double[][] matrixGaussJordan(double[][] m){
-        m = gauss.matrixGauss(m);
+        m = Gauss.matrixGauss(m);
         for(int i=1;i<m.length;i++){
             int idxNotNoll = 0;
             for(int j=m[0].length-2;j>=0;j--){
