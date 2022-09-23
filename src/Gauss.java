@@ -33,7 +33,6 @@ public class Gauss {
                     }
                 }
             }
-            tools.printMatrix(m);
         }
         return m;
     }
