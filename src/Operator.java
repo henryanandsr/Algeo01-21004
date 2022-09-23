@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Operator {
+    /*
+    prosedur ini berfungsi untuk print matrix
+    dengan cara memasukkan matrix mxn berbentuk double pada prosedur
+
+    print ini akan menampilakan matrix sesuai dengan baris dan kolomnya
+    */
     public static void printMatrix(double[][] m){
         for(int i=0;i<m.length;i++){
             for(int j=0;j<m[0].length;j++){
