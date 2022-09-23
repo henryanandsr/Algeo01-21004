@@ -14,7 +14,7 @@ public class Operator {
                     System.out.print(m[i][j]);
                 }
                 if(j>0){
-                    System.out.print(m[i][j]);
+                    System.out.print(" "+m[i][j]);
                 }
             }
             System.out.println("");
