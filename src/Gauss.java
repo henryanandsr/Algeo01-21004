@@ -1,12 +1,9 @@
 import java.util.*;
 
 public class Gauss {
+
     private static Operator tools = new Operator();
 
-    public static void main (String[] args){
-        double[][] m = {{1,2,3,4,6},{2,2,7,5,99},{3,4,5,89,32},{4,5,6,7,99,90}};
-        tools.printMatrix(matrixGauss(m));
-    }
     public static double[][] matrixGauss(double[][] m){
         int baris = m.length;
         int kolom = m[0].length;
