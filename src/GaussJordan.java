@@ -1,4 +1,5 @@
 public class GaussJordan {
+
     public static double[][] matrixGaussJordan(double[][] m){
         m = Gauss.matrixGauss(m);
         for(int i=0;i<m.length;i++){

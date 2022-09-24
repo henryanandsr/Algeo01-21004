@@ -3,7 +3,6 @@ import java.util.*;
 public class Gauss {
 
     private static Operator tools = new Operator();
-
     public static double[][] matrixGauss(double[][] m){
         int baris = m.length;
         int kolom = m[0].length;
@@ -17,7 +16,7 @@ public class Gauss {
                     jumNol--;
                 }
             }
-            if((jumNol>i+1)&&(tools.isNotAllNol(m,i,i))){
+            if((jumNol>i)&&(tools.isNotAllNol(m,i,i))){
                 tools.changeRow(m,i);
             }
         }
