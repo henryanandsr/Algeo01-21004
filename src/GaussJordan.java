@@ -1,7 +1,7 @@
 public class GaussJordan {
     public static double[][] matrixGaussJordan(double[][] m){
         m = Gauss.matrixGauss(m);
-        for(int i=1;i<m.length;i++){
+        for(int i=0;i<m.length;i++){
             int idxNotNoll = 0;
             for(int j=m[0].length-2;j>=0;j--){
                 if(m[i][j]!=0){
@@ -17,7 +17,7 @@ public class GaussJordan {
                     if(k!=0){
                         double upperObject = m[k-1][idxNotNoll];
                         if(upperObject!=0) {
-                            for (int l = idxNotNoll; l < m.length; l++) {
+                            for (int l = idxNotNoll; l < m[0].length; l++) {
                                 m[k-1][l] = (m[k][idxNotNoll] * m[k - 1][l]) - (upperObject * m[k][l]);
                             }
                         }
