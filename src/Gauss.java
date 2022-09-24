@@ -3,6 +3,7 @@ import java.util.*;
 public class Gauss {
 
     private static Operator tools = new Operator();
+
     public static double[][] matrixGauss(double[][] m){
         int baris = m.length;
         int kolom = m[0].length;
