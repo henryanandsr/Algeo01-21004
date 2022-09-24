@@ -1,4 +1,13 @@
 public class GaussJordan {
+
+    //cara ngetest case
+    public static void main(String[] args) {
+        double[][] m = {{22,34,123,34},{23,23,76,56},{43,68,89,46}};
+        Operator.printMatrix(matrixGaussJordan(m));
+    }//kalau dah paham harap dihapus kode di atas
+
+
+
     public static double[][] matrixGaussJordan(double[][] m){
         m = Gauss.matrixGauss(m);
         for(int i=0;i<m.length;i++){
