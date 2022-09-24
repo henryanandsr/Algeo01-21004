@@ -172,4 +172,7 @@ public class Operator {
         transpose(copy);
         return copy;
     }
+    public static boolean isSquare(double[][] arr){
+        return arr.length==arr[0].length;
+    }
 }
