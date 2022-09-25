@@ -8,13 +8,14 @@ public class menu {
         System.out.println("2. Determinan");
         System.out.println("3. Matriks balikan");
         System.out.println("4. Interpolasi Polinom");
-        System.out.println("5. Regresi linier berganda");
-        System.out.println("6. Keluar");
+        System.out.println("5. Interpolasi Bicubic");
+        System.out.println("6. Regresi linier berganda");
+        System.out.println("7. Keluar");
         System.out.println("Pilih menu : ");
         input = sc.nextInt();
         return 0;
     }
-    public static int spl(){
+    public static int SplDetInverse(){
         Scanner sc = new Scanner(System.in);
         int input;
         System.out.println("\n1. Metode eliminasi Gauss");  
