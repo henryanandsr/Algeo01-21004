@@ -28,6 +28,19 @@ public class Gauss {
                 }
             }
         }
+        for(int i=0;i<m.length;i++){
+            double firstNotNol=0;
+            for(int k=m[0].length-2;k>=0;k--){
+                if(m[i][k]!=0){
+                    firstNotNol=m[i][k];
+                }
+            }
+            if(firstNotNol!=0){
+                for(int j=0;j<m[0].length;j++){
+                    m[i][j]/=firstNotNol;
+                }
+            }
+        }
         return m;
     }
 }
