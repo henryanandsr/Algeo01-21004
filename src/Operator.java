@@ -4,20 +4,25 @@ import static java.lang.Math.abs;
 
 
 public class Operator {
+
+    public static void main(String[] args) {
+        double[][] m = {{1,2,3,4},{2,2,3,4},{1,2,3,4}};
+        printMatrix(getMatrix(m,1,0,2,2));
+    }
     /*
     prosedur ini berfungsi untuk print matrix
     dengan cara memasukkan matrix mxn berbentuk double pada prosedur
 
     print ini akan menampilakan matrix sesuai dengan baris dan kolomnya
     */
-    public static void main(String[] args) {
-        double[][] m = {{1,2,3},{4,5,6},{7,8,9}};
-        Operator.printMatrix(sub_matriks(m,0,0));
-        // System.out.println(m.length);
-        // System.out.print(m[0].length + "\n");
-        // System.out.println(determinan(m) + "\n");
-        Operator.printMatrix(adjoin(m));
-    }
+//    public static void main(String[] args) {
+//        double[][] m = {{1,2,3},{4,5,6},{7,8,9}};
+//        Operator.printMatrix(sub_matriks(m,0,0));
+//        // System.out.println(m.length);
+//        // System.out.print(m[0].length + "\n");
+//        // System.out.println(determinan(m) + "\n");
+//        Operator.printMatrix(adjoin(m));
+//    }
     public static void printMatrix(double[][] m){
         for(int i=0;i<m.length;i++){
             for(int j=0;j<m[0].length;j++){
@@ -174,5 +179,49 @@ public class Operator {
     }
     public static boolean isSquare(double[][] arr){
         return arr.length==arr[0].length;
+    }
+    public static double[][] getMatrix(double[][] m,int idxRow1,int idxCol1,int idxRow2,int idxCol2){
+        double[][] newM = new double[(idxRow2-idxRow1)+1][(idxCol2-idxCol1)+1];
+        for(int i=idxRow1;i<=idxRow2;i++){
+            for(int j=idxCol1;j<=idxCol2;j++){
+                newM[i-idxRow1][j-idxCol1] = m[i][j];
+            }
+        }
+        return newM;
+    }
+    public static void printResultGGJ(double[][] m){
+        for(int i=0;i<m.length;i++){
+            System.out.println("x"+(i+1)+" = "+m[i][m[0].length-1]);
+        }
+    }
+    public static void printResultInverseSPL(double[] r){
+        for(int i=0;i<r.length;i++){
+            System.out.println("x"+(i+1)+" = "+r[i]);
+        }
+    }
+    public static void createIdentity(double[][] m){
+        for(int i=0;i<m.length;i++){
+            for(int j=0;j<m[0].length;j++){
+                if(i==j){
+                    m[i][j]=1;
+                }else{
+                    m[i][j]=0;
+                }
+            }
+        }
+    }
+    public static double[][] mergeMatrix(double[][] m1,double[][] m2){
+        double[][] mergeMtrx = new double[m1.length][m1[0].length+m2[0].length];
+        for(int i=0;i<m1.length;i++){
+            for(int j=0;j<m1[0].length;j++){
+                mergeMtrx[i][j] = m1[i][j];
+            }
+        }
+        for(int i=0;i<m2.length;i++){
+            for(int j=0;j<m2[0].length;j++){
+                mergeMtrx[i][j+(m1[0].length)] = m2[i][j];
+            }
+        }
+        return mergeMtrx;
     }
 }

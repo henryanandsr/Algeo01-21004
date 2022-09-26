@@ -1,8 +1,10 @@
-import java.util.*;
-
 public class Gauss {
 
     private static Operator tools = new Operator();
+    public static void main(String[] args) {
+        double[][] m = {{2,1,5,4},{4,7,5,7},{8,1,3,8}};
+        Operator.printMatrix(matrixGauss(m));
+    }
 
     public static double[][] matrixGauss(double[][] m){
         int baris = m.length;
