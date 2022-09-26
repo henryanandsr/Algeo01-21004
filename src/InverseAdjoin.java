@@ -1,11 +1,4 @@
 public class InverseAdjoin {
-    public static void main(String[] args){
-        double[][] m = {{2,1,5},{4,7,5},{8,1,3}};
-        // System.out.println(m.length);
-        // System.out.print(m[0].length + "\n");
-        // System.out.println(determinan(m) + "\n");
-        Operator.printMatrix(inverseMatrixAdjoin(m));
-    }
     public static double[][] inverseMatrixAdjoin(double[][] arr){
         int i,j;
         double[][] adjoin = Operator.adjoin(arr);
