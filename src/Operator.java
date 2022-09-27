@@ -129,19 +129,6 @@ public class Operator {
         }
         return sub;
     }
-    public static double determinan(double[][] arr){
-        int kali = 1;
-        double det = 0;
-        int i;
-        if (arr.length==1){
-            return arr[0][0];
-        }
-        for (i=0;i<arr[0].length;i++){
-            det += (arr[0][i] * kali * determinan(sub_matriks(arr,0,i)));
-            kali *=-1;
-        }
-        return det;
-    }
     public static double[][] copyMatriks(double[][] arr, double[][] copy){
         int i,j;
         for (i=0;i<arr.length;i++){
@@ -167,7 +154,7 @@ public class Operator {
         double copy[][] = new double[arr.length][arr[0].length];
         for (i=0;i<arr.length;i++){
             for(j=0;j<arr[0].length;j++){
-                copy[i][j] = kali*determinan(sub_matriks(arr, i, j));
+                copy[i][j] = kali*DeterminanKofaktor.determinanKofaktor(sub_matriks(arr, i, j));
                 kali *= -1;
             }
         }
