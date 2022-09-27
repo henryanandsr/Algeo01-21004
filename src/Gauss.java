@@ -22,7 +22,7 @@ public class Gauss {
             for(int j=i+1;j<baris;j++){
                 if(m[j][i]!=0){
                     double firstRow = m[j][i];
-                    for(int k=0;k<m[0].length;k++){
+                    for(int k=i;k<m[0].length;k++){
                         m[j][k] = (m[i][i]*m[j][k])-(firstRow*m[i][k]);
                     }
                 }
