@@ -19,10 +19,6 @@ public class GaussJordan {
                 }
             }
             if(m[i][idxNotNoll]!=0) {
-//                double firstCol = m[i][idxNotNoll];
-//                for (int k=idxNotNoll;k<m[0].length;k++) {
-//                    m[i][k]=m[i][k]/firstCol;
-//                }
                 for (int k=i;k>0;k--){
                     double upperObject = m[k-1][idxNotNoll];
                     if(upperObject!=0) {

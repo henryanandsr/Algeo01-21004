@@ -1,17 +1,18 @@
 public class Gauss {
 
     private static Operator tools = new Operator();
+
+    public static void main(String[] args) {
+        double[][] m={{0,0,2,4},{0,0,0,4},{1,2,3,4},{0,1,2,3}};
+        tools.printMatrix(matrixGauss(m));
+    }
     public static double[][] matrixGauss(double[][] m){
         int baris = m.length;
-        int kolom = m[0].length;
         for(int i=0;i<baris;i++){
             int jumNol = 0;
-            for(int j=0;j<kolom;j++){
-                if(m[i][j]==0&&j<=i+1){
+            for(int j=0;j<=i;j++){
+                if(m[i][j]==0){
                     jumNol++;
-                }
-                if(m[i][i]!=0){
-                    jumNol--;
                 }
             }
             if((jumNol>i)&&(tools.isNotAllNol(m,i,i))){
@@ -20,9 +21,15 @@ public class Gauss {
         }
         for(int i=0;i<baris;i++){
             for(int j=i+1;j<baris;j++){
-                if(m[j][i]!=0){
-                    double firstRow = m[j][i];
-                    for(int k=i;k<m[0].length;k++){
+                int anu=0;
+                for(int k=i;k>=0;k--){
+                    if(m[j][k]!=0){
+                        anu=k;
+                    }
+                }
+                if(anu!=0||anu==0&&i==0){
+                    double firstRow = m[j][anu];
+                    for(int k=anu;k<m[0].length;k++){
                         m[j][k] = (m[i][i]*m[j][k])-(firstRow*m[i][k]);
                     }
                 }
@@ -30,7 +37,7 @@ public class Gauss {
         }
         for(int i=0;i<m.length;i++){
             double firstNotNol=0;
-            for(int k=m[0].length-2;k>=0;k--){
+            for(int k=m.length-2;k>=0;k--){
                 if(m[i][k]!=0){
                     firstNotNol=m[i][k];
                 }
