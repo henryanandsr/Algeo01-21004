@@ -1,4 +1,11 @@
 public class InterpolasiBicubic {
+    public static void main(String[] args){
+        int i;
+        double[][] m = {{153,59,210,96},{125,161,72,81},{98,101,42,12},{21,51,0,16}};
+//        for(i=0;i<16;i++){
+            System.out.println(makematriksA(m)[0]);
+//        }
+    }
     public static double[][] makeMatriksX(){
         int i,j,k,l,x;
         double m16[][] = new double[16][16];

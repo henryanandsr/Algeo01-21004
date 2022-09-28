@@ -4,6 +4,7 @@ public class InverseOBE {
         Operator.createIdentity(identity);
         double[][] mergeMatrix = Operator.mergeMatrix(m,identity);
         GaussJordan.matrixGaussJordan(mergeMatrix);
+        Operator.printMatrix(mergeMatrix);
         double[][] result = Operator.getMatrix(mergeMatrix,0,((mergeMatrix[0].length/2)),(mergeMatrix.length-1),(mergeMatrix[0].length-1));
         return result;
     }

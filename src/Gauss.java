@@ -37,7 +37,7 @@ public class Gauss {
         }
         for(int i=0;i<m.length;i++){
             double firstNotNol=0;
-            for(int k=m.length-2;k>=0;k--){
+            for(int k=m.length-1;k>=0;k--){
                 if(m[i][k]!=0){
                     firstNotNol=m[i][k];
                 }
