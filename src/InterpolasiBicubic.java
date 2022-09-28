@@ -1,9 +1,10 @@
 public class InterpolasiBicubic {
     public static void main(String[] args){
-        int i;
         double[][] m = {{153,59,210,96},{125,161,72,81},{98,101,42,12},{21,51,0,16}};
-//        for(i=0;i<16;i++){
-            System.out.println(makematriksA(m)[0]);
+        System.out.println(hitungFungsi(m, 0, 0));
+        System.out.println(hitungFungsi(m, 0.5, 0.5));
+        System.out.println(hitungFungsi(m, 0.25, 0.75));
+        System.out.println(hitungFungsi(m, 0.1, 0.9));
 //        }
     }
     public static double[][] makeMatriksX(){
@@ -46,11 +47,7 @@ public class InterpolasiBicubic {
     }
     //tentukan nilai dari a
     public static double[] makematriksA(double[][] arr){
-        System.out.println("================X");
-        Operator.printMatrix(makeMatriksX());
-        System.out.println("================X");
         double[][] inversX = InverseOBE.inverseMatrixOBE(makeMatriksX());
-        Operator.printMatrix(inversX);
         double[] mY = makeMatriksY(arr);
         double result[] = new double[16];
         int i,j;
