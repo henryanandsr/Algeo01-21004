@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 import static java.lang.Math.abs;
 
@@ -84,21 +83,6 @@ public class Operator {
         }
         return isNotNol;
     }
-
-    public static String readMatrixTxt(String nameFile){
-        String output="";
-        try{
-            File targetRead = new File("./test/"+nameFile);
-            Scanner scanTxT = new Scanner(targetRead);
-            while(scanTxT.hasNextLine()){
-                output = scanTxT.nextLine();
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        return output;
-    }
-
     public static double[][] bacaMatriks(int row, int col){
         double arr[][] = new double[row][col];
         Scanner s = new Scanner(System.in);
