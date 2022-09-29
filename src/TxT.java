@@ -164,4 +164,41 @@ public class TxT {
         }
         return isTrue;
     }
+    public static boolean writeInterpolasiBikubik(String path,double[][] m){
+        boolean isTrue = false;
+        try{
+            FileWriter writeMatrix = new FileWriter(path);
+            writeMatrix.write("Matrix :\n");
+            isTrue = writeMatrix(path,m);
+            Scanner scan = new Scanner(System.in);
+            System.out.print("x = ");
+            int x = scan.nextInt();
+            System.out.println();
+            System.out.print("y = ");
+            int y = scan.nextInt();
+            System.out.println();
+            writeMatrix.write("dengan \nx = "+x+"\ny = "+y+"\nmemiliki hasil :"+InterpolasiBicubic.hitungFungsi(m,x,y)+"\n\n");
+            writeMatrix.close();
+        } catch (IOException e) {
+            System.out.println("path tidak ditemukan");
+        }
+        return isTrue;
+    }
+    public static boolean writeInterpolasiPolinom(String path, double[][] m){
+        boolean isTrue = false;
+        try{
+            FileWriter writeMatrix = new FileWriter(path);
+            writeMatrix.write("Matrix :\n");
+            isTrue = writeMatrix(path,m);
+            Scanner scan = new Scanner(System.in);
+            System.out.print("x = ");
+            double x = scan.nextDouble();
+            System.out.println();
+            writeMatrix.write("dengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
+            writeMatrix.close();
+        } catch (IOException e) {
+            System.out.println("path tidak ditemukan");
+        }
+        return isTrue;
+    }
 }
