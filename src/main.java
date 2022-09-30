@@ -35,6 +35,7 @@ public class main{
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
                             }
+                            m = null;
                             m = Operator.bacaMatriks(row,col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -56,6 +57,7 @@ public class main{
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
                             }
+                            m = null;
                             m = Operator.bacaMatriks(row,col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -70,6 +72,7 @@ public class main{
                             row = scan.nextInt();
                             System.out.print("masukkan jumlah kolom matrix:");
                             col = scan.nextInt();
+                            m = null;
                             m = Operator.bacaMatriks(row,col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -84,6 +87,7 @@ public class main{
                             row = scan.nextInt();
                             System.out.print("masukkan jumlah kolom matrix:");
                             col = scan.nextInt();
+                            m = null;
                             m = Operator.bacaMatriks(row,col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -109,6 +113,7 @@ public class main{
                             row = scan.nextInt();
                             System.out.print("masukkan jumlah kolom matrix:");
                             col = scan.nextInt();
+                            m = null;
                             m = Operator.bacaMatriks(row, col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -123,6 +128,7 @@ public class main{
                             row = scan.nextInt();
                             System.out.print("masukkan jumlah kolom matrix:");
                             col = scan.nextInt();
+                            m = null;
                             m = Operator.bacaMatriks(row, col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -148,6 +154,7 @@ public class main{
                             row = scan.nextInt();
                             System.out.print("masukkan jumlah kolom matrix:");
                             col = scan.nextInt();
+                            m = null;
                             m = Operator.bacaMatriks(row, col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -162,6 +169,7 @@ public class main{
                             row = scan.nextInt();
                             System.out.print("masukkan jumlah kolom matrix:");
                             col = scan.nextInt();
+                            m = null;
                             m = Operator.bacaMatriks(row, col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
@@ -178,6 +186,7 @@ public class main{
                     row = scan.nextInt();
                     System.out.print("masukkan jumlah kolom matrix:");
                     col = scan.nextInt();
+                    m = null;
                     m = Operator.bacaMatriks(row, col);
                     System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                     targetFile = scan.next();
@@ -192,6 +201,7 @@ public class main{
                     row = scan.nextInt();
                     System.out.print("masukkan jumlah kolom matrix:");
                     col = scan.nextInt();
+                    m = null;
                     m = Operator.bacaMatriks(row, col);
                     System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                     targetFile = scan.next();
