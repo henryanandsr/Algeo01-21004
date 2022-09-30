@@ -39,9 +39,64 @@ public class TxT {
                 writeMatrix.write("\n");
             }
             writeMatrix.write("\n");
-            System.out.println("matrix berhasil diprosess");
             writeMatrix.close();
-            return true;
+            isTrue =true;
+        } catch (IOException e) {
+            System.out.println("path tidak ditemukan");
+        }
+        return isTrue;
+    }
+    public static boolean writeInverseAdjoin(String path, double[][] m){
+        boolean isTrue = false;
+        try{
+            FileWriter writeMatrix = new FileWriter(path);
+            writeMatrix.write("Matrix :\n");
+            isTrue = writeMatrix(path, m);
+            if(Operator.isSquare(m)){
+                if(DeterminanKofaktor.determinanKofaktor(m)==0){
+                    System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
+                    writeMatrix.write("matrix tidak memiliki inverse karena determinan sama dengan 0\n\n");
+                    isTrue = false;
+                }else{
+                    InverseAdjoin.inverseMatrixAdjoin(m);
+                    System.out.println("matrix telah diubah menjadi inverse, dengan metode inverse kofaktor......");
+                    writeMatrix.write("dengan metode Adjoin matrix ini memiliki inverse:\n\n");
+                    isTrue = writeMatrix(path,m);
+                }
+            }else{
+                isTrue = false;
+                System.out.println("matrix yang dimasukkan tidak nxn atau square");
+                writeMatrix.write("matrix yang dimasukkan tidak nxn atau square\n\n");
+            }
+            writeMatrix.close();
+        } catch (IOException e) {
+            System.out.println("path tidak ditemukan");
+        }
+        return isTrue;
+    }
+    public static boolean writeInverseOBE(String path, double[][] m){
+        boolean isTrue = false;
+        try{
+            FileWriter writeMatrix = new FileWriter(path);
+            writeMatrix.write("Matrix :\n");
+            isTrue = writeMatrix(path, m);
+            if(Operator.isSquare(m)){
+                if(DeterminanKofaktor.determinanKofaktor(m)==0){
+                    System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
+                    writeMatrix.write("tidak memiliki inverse karena determinan sama dengan 0\n\n");
+                    isTrue = false;
+                }else {
+                    InverseAdjoin.inverseMatrixAdjoin(m);
+                    System.out.println("matrix telah diubah menjadi inverse, dengan metode inverse OBE......");
+                    writeMatrix.write("dengan metode OBE matrix ini memiliki inverse:\n\n");
+                    isTrue = writeMatrix(path, m);
+                }
+            }else{
+                isTrue = false;
+                System.out.println("matrix yang dimasukkan tidak nxn atau square");
+                writeMatrix.write("matrix yang dimasukkan tidak nxn atau square\n\n");
+            }
+            writeMatrix.close();
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -51,25 +106,37 @@ public class TxT {
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
-            if(DeterminanKofaktor.determinanKofaktor(Operator.getMatrix(m,0,0,m.length-1,m.length-1))==0){
-                writeMatrix.write("Matrix :\n");
-                isTrue = writeMatrix(path,m);
-                writeMatrix.write("tidak ada SPL karena determinan sama dengan 0\n\n");
-                isTrue = false;
-                System.out.println("tidak ada SPL karena determinan sama dengan 0");
-                writeMatrix.close();
-            }else {
-                writeMatrix.write("Matrix :\n");
-                isTrue = writeMatrix(path,m);
-                writeMatrix.write("dengan metode balikan, matriks ini memiliki hasil:\n");
-                double[] result = InverseSPL.matrixInverseSPL(m);
-                for(int i=0;i<result.length;i++){
-                    writeMatrix.write("x"+(i+1)+" = "+result[i]+"\n");
+            if(Operator.isSquare(m)) {
+                if (DeterminanKofaktor.determinanKofaktor(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)) == 0) {
+                    writeMatrix.write("Matrix :\n");
+                    isTrue = writeMatrix(path, m);
+                    writeMatrix.write("tidak ada SPL karena determinan sama dengan 0\n\n");
+                    isTrue = false;
+                    System.out.println("tidak ada SPL karena determinan sama dengan 0");
+                } else {
+                    writeMatrix.write("Matrix :\n");
+                    isTrue = writeMatrix(path, m);
+                    System.out.println("Matrix:");
+                    writeMatrix.write("dengan metode balikan, matriks ini memiliki hasil:\n");
+                    double[] result = InverseSPL.matrixInverseSPL(m);
+                    System.out.println("Memiliki inverse:");
+                    Operator.printMatrix(InverseOBE.inverseMatrixOBE(m));
+                    System.out.println();
+                    System.out.println("dengan result");
+                    Operator.printResultInverseSPL(result);
+                    for (int i = 0; i < result.length; i++) {
+                        writeMatrix.write("x" + (i + 1) + " = " + result[i] + "\n");
+                    }
+                    writeMatrix.write("\n\n");
                 }
-                writeMatrix.write("\n\n");
-                System.out.println("matrix berhasil diprosess");
-                writeMatrix.close();
+            }else{
+                writeMatrix.write("Matrix :\n");
+                isTrue = writeMatrix(path, m);
+                isTrue = false;
+                System.out.println("matrix yang dimasukkan tidak nxn atau square");
+                writeMatrix.write("matrix yang dimasukkan tidak nxn atau square\n\n");
             }
+            writeMatrix.close();
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -89,8 +156,8 @@ public class TxT {
                 writeMatrix.write("x"+(i+1)+" = "+result[i][m.length]+"\n");
             }
             writeMatrix.write("\n\n");
-            System.out.println("matrix berhasil diprosess");
             writeMatrix.close();
+            isTrue = true;
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -110,8 +177,8 @@ public class TxT {
                 writeMatrix.write("x"+(i+1)+" = "+result[i][m.length]+"\n");
             }
             writeMatrix.write("\n\n");
-            System.out.println("matrix berhasil diprosess");
             writeMatrix.close();
+            isTrue = true;
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -122,15 +189,19 @@ public class TxT {
         try {
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
+            System.out.println("Matrix :");
+            Operator.printMatrix(m);
             isTrue = writeMatrix(path,m);
             writeMatrix.write("dengan metode cramer persamaan ini memilki hasil:\n\n");
+            System.out.println("dengan metode cramer persamaan ini memilki hasil:");
             double[] result = Cramer.cramer(m);
+            Operator.printResultInverseSPL(result);
             for(int i=0;i<m.length-1;i++){
                 writeMatrix.write("x"+(i+1)+" = "+result[i]+"\n");
             }
             writeMatrix.write("\n\n");
-            System.out.println("matrix berhasil diprosess");
             writeMatrix.close();
+            isTrue = true;
         }catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -140,10 +211,13 @@ public class TxT {
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             writeMatrix.write("Matrix :\n");
             isTrue = writeMatrix(path,m);
             writeMatrix.write("dengan metode kofaktor matriks ini memiliki determinan = "+DeterminanKofaktor.determinanKofaktor(m)+"\n\n");
-            System.out.println("determinan berhasil diproses");
+            System.out.println("dengan metode kofaktor matriks ini memiliki determinan = "+DeterminanKofaktor.determinanKofaktor(m));
+            isTrue = true;
             writeMatrix.close();
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
@@ -154,11 +228,15 @@ public class TxT {
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             writeMatrix.write("Matrix :\n");
             isTrue = writeMatrix(path,m);
             writeMatrix.write("dengan metode OBE matriks ini memiliki determinan = "+DeterminanOBE.determinan(m)+"\n\n");
+            System.out.println("dengan metode OBE matriks ini memiliki determinan = "+DeterminanOBE.determinan(m));
             System.out.println("determinan berhasil diproses");
             writeMatrix.close();
+            isTrue = true;
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -169,6 +247,8 @@ public class TxT {
         try{
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             isTrue = writeMatrix(path,m);
             Scanner scan = new Scanner(System.in);
             System.out.print("x = ");
@@ -177,8 +257,10 @@ public class TxT {
             System.out.print("y = ");
             int y = scan.nextInt();
             System.out.println();
+            System.out.println("memiliki hasil interpolasi bikubik: "+InterpolasiBicubic.hitungFungsi(m,x,y));
             writeMatrix.write("dengan \nx = "+x+"\ny = "+y+"\nmemiliki hasil :"+InterpolasiBicubic.hitungFungsi(m,x,y)+"\n\n");
             writeMatrix.close();
+            isTrue = true;
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
@@ -189,13 +271,17 @@ public class TxT {
         try{
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             isTrue = writeMatrix(path,m);
             Scanner scan = new Scanner(System.in);
             System.out.print("x = ");
             double x = scan.nextDouble();
             System.out.println();
+            System.out.println("memiliki hasil interpolasi polinom: "+InterpolasiPolinom.hitungFungsi(m,x));
             writeMatrix.write("dengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
             writeMatrix.close();
+            isTrue = true;
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
