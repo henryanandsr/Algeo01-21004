@@ -206,4 +206,15 @@ public class Operator {
         }
         return mergeMtrx;
     }
+    public static double[][] multiplyMatrix(double[][] m1, double[][] m2){
+        double[][] mx = new double[m1.length][m2[0].length];
+        for (int i=0;i<mx.length;i++){
+            for (int j=0;j<mx[0].length;j++){
+                for(int l=0;l<m1[0].length;l++){
+                    mx[i][j] = m1[i][l]*m2[l][j];
+                }
+            }
+        }
+        return mx;
+    }
 }
