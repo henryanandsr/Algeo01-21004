@@ -53,7 +53,7 @@ public class TxT {
             writeMatrix.write("Matrix :\n");
             isTrue = writeMatrix(path, m);
             if(Operator.isSquare(m)){
-                if(DeterminanKofaktor.determinanKofaktor(m)==0){
+                if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
                     writeMatrix.write("matrix tidak memiliki inverse karena determinan sama dengan 0\n\n");
                     isTrue = false;
@@ -81,7 +81,7 @@ public class TxT {
             writeMatrix.write("Matrix :\n");
             isTrue = writeMatrix(path, m);
             if(Operator.isSquare(m)){
-                if(DeterminanKofaktor.determinanKofaktor(m)==0){
+                if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
                     writeMatrix.write("tidak memiliki inverse karena determinan sama dengan 0\n\n");
                     isTrue = false;
@@ -107,7 +107,7 @@ public class TxT {
         try {
             FileWriter writeMatrix = new FileWriter(path);
             if(Operator.isSquare(m)) {
-                if (DeterminanKofaktor.determinanKofaktor(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)) == 0) {
+                if (DeterminanKofaktor.determinan(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)) == 0) {
                     writeMatrix.write("Matrix :\n");
                     isTrue = writeMatrix(path, m);
                     writeMatrix.write("tidak ada SPL karena determinan sama dengan 0\n\n");
@@ -215,8 +215,8 @@ public class TxT {
             Operator.printMatrix(m);
             writeMatrix.write("Matrix :\n");
             isTrue = writeMatrix(path,m);
-            writeMatrix.write("dengan metode kofaktor matriks ini memiliki determinan = "+DeterminanKofaktor.determinanKofaktor(m)+"\n\n");
-            System.out.println("dengan metode kofaktor matriks ini memiliki determinan = "+DeterminanKofaktor.determinanKofaktor(m));
+            writeMatrix.write("dengan metode kofaktor matriks ini memiliki determinan = "+DeterminanKofaktor.determinan(m)+"\n\n");
+            System.out.println("dengan metode kofaktor matriks ini memiliki determinan = "+DeterminanKofaktor.determinan(m));
             isTrue = true;
             writeMatrix.close();
         } catch (IOException e) {

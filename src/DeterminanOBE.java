@@ -108,20 +108,20 @@ public class DeterminanOBE {
             sign*=-1;
 // System.out.println("terjadi swap baris " + (idxBasis+1) + " dan " + (scanNot0+1));
         }
-Operator.printMatrix(m);
-System.out.println();
+// Operator.printMatrix(m);
+// System.out.println();
         //mengisi list basis dengan elemen baris dan disederhanakan
         //penyederhanaan digunakan untuk eliminasi elmt di bawah basis
         for (int i=0;i<m[0].length;i++){
             basis[i]=m[idxBasis][i]/m[idxBasis][idxBasis];
         }
-System.out.println("Basis:");
-printBasis(basis);
+// System.out.println("Basis:");
+// printBasis(basis);
         //eliminasi 1 column di bawah elemen basis
         //dengan pengurangan baris tsb dengan basis
         int elimRow = idxBasis+1;
         while (elimRow<m.length) {
-System.out.println("\niterasi eliminasi "+elimRow);
+// System.out.println("\niterasi eliminasi "+elimRow);
             while(m[elimRow][idxBasis]!=0){
                 if (m[elimRow][idxBasis]>0 && m[elimRow][idxBasis]<1) {
                     constant *= 1/m[elimRow][idxBasis];
@@ -132,8 +132,8 @@ System.out.println("\niterasi eliminasi "+elimRow);
                 } else { //m[elimRow][idxBasis] < 0
                     tambahBasis(m, elimRow, basis);
                 }
-Operator.printMatrix(m);
-System.out.println("'terkurangi' 1");
+// Operator.printMatrix(m);
+// System.out.println("'terkurangi' 1");
             }
             elimRow++;
         }

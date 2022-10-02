@@ -1,5 +1,5 @@
 public class DeterminanKofaktor {
-    public static double determinanKofaktor(double[][] arr){
+    public static double determinan(double[][] arr){
         int kali = 1;
         double det = 0;
         int i;
@@ -7,7 +7,7 @@ public class DeterminanKofaktor {
             return arr[0][0];
         }
         for (i=0;i<arr[0].length;i++){
-            det += (arr[0][i] * kali * determinanKofaktor(Operator.sub_matriks(arr,0,i)));
+            det += (arr[0][i] * kali * determinan(Operator.sub_matriks(arr,0,i)));
             kali *=-1;
         }
         return det;

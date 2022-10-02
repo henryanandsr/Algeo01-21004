@@ -138,7 +138,7 @@ public class Operator {
         double copy[][] = new double[arr.length][arr[0].length];
         for (i=0;i<arr.length;i++){
             for(j=0;j<arr[0].length;j++){
-                copy[i][j] = kali*DeterminanKofaktor.determinanKofaktor(sub_matriks(arr, i, j));
+                copy[i][j] = kali*DeterminanKofaktor.determinan(sub_matriks(arr, i, j));
                 kali *= -1;
             }
         }
@@ -216,5 +216,18 @@ public class Operator {
             }
         }
         return mx;
+    }
+    public static double[][] transposeNotSq(double[][] m){
+        double[][] mtr = new double[m[0].length][m.length]; 
+        double [] temp = new double[m[0].length];
+        for (int i=0;i<m.length;i++){
+            for (int j=0;j<m[0].length;j++){
+                temp[j] = m[i][j];
+            }
+            for (int k=0;k<mtr.length;k++){
+                mtr[k][i]=temp[k];
+            }
+        }
+        return mtr;
     }
 }
