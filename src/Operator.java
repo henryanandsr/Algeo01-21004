@@ -210,8 +210,9 @@ public class Operator {
         double[][] mx = new double[m1.length][m2[0].length];
         for (int i=0;i<mx.length;i++){
             for (int j=0;j<mx[0].length;j++){
+                mx[i][j] = 0;
                 for(int l=0;l<m1[0].length;l++){
-                    mx[i][j] = m1[i][l]*m2[l][j];
+                    mx[i][j] += m1[i][l]*m2[l][j];
                 }
             }
         }

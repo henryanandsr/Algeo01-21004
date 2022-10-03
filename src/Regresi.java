@@ -1,10 +1,20 @@
 public class Regresi {
     public static void main(String[] args) {  
         double[][] m={
-        { 0, 0, 0, 0, 3 }, 
-        { 3, 2, 1, 10, 2 }, 
-        { 5, 10, 0, 0, 0 },
+            { 0, 0, 0, 0, 3 }, 
+            { 3, 2, 1, 10, 2 }, 
+            { 5, 10, 0, 0, 0 },
+            { 0, 0, 0, 13, 12 }
         };
+        // double[][] m1 = {
+        //     {0, 0, 2},
+        //     {2, 0, -2},
+        //     {-1, 2, -4},
+        //     {3, 0, 0}
+        // };
+        // double[][] mx = new double[m1.length][m[0].length];
+        // mx = Operator.multiplyMatrix(m1, m);
+        // Operator.printMatrix(mx);
         regresi(m);
     }
     public static void regresi(double[][] m){
@@ -19,8 +29,7 @@ public class Regresi {
         double[][] Xtr = new double[X[0].length][X.length];         //sizenya ngga kebalik ky transpose semestinya karena cara kerja fungsi transposenya
         double[][] XtrX = new double[Xtr.length][X[0].length];
         double[][] A = new double[XtrX.length][XtrX[0].length];
-        Operator.transposeNotSq(X);
-        Operator.printMatrix(Xtr);
+        Xtr = Operator.transposeNotSq(X);
         XtrX = Operator.multiplyMatrix(Xtr, X);
         Operator.copyMatriks(XtrX, A);
         //Mengisi matriks b
@@ -29,13 +38,9 @@ public class Regresi {
         XtrY = Operator.multiplyMatrix(Xtr, Y);
         Operator.copyMatriks(XtrY, B);
         //Menemukan beta
-        double[][] inSPL;
         double[][] merged;
         merged = Operator.mergeMatrix(A,B);
-        System.out.println("Matrix di bawah akan dihitung dengan eliminasi gauss");
+        Gauss.matrixGauss(merged);
         Operator.printMatrix(merged);
-        inSPL = Gauss.matrixGauss(Operator.mergeMatrix(A, B));
-        System.out.println("Hasil eliminasi gauss:");
-        Operator.printMatrix(inSPL);
     }
 }
