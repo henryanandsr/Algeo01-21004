@@ -455,8 +455,9 @@ public class TxT {
             Operator.printMatrix(Regresi.regresi(m));
             writeMatrix.write("Matrix:\n\n");
             Operator.writeMatrix(writeMatrix,m);
-            writeMatrix.write("memilki regresi\n\n");
+            writeMatrix.write("memliki regresi\n\n");
             Operator.writeMatrix(writeMatrix,Regresi.regresi(m));
+            writeMatrix.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
