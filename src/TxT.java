@@ -197,7 +197,7 @@ public class TxT {
                 System.out.println("===============================================================================================\n\n");
                 return false;
             }
-            if(Operator.isDiagonalSPLNotNoll(m)) {
+            if(!Operator.isDiagonalSPLNotNoll(m)) {
                 writeMatrix.write("dengan gauss:\n");
                 Operator.writeMatrix(writeMatrix,m);
                 writeMatrix.write("memiliki hasil SPL:\n");
@@ -255,7 +255,7 @@ public class TxT {
                 System.out.println("===============================================================================================\n\n");
                 return false;
             }
-            if(Operator.isDiagonalSPLNotNoll(m)) {
+            if(!Operator.isDiagonalSPLNotNoll(m)) {
                 writeMatrix.write("dengan gauss jordan:\n");
                 Operator.writeMatrix(writeMatrix,m);
                 writeMatrix.write("memiliki hasil SPL:\n");
