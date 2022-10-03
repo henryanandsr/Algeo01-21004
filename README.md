@@ -29,5 +29,7 @@ Java
 
 # AUTOR
 Henry Anand Septian Radityo		13521004
+
 Christophorus Dharma Winata		13521009
+
 Fahrian Afdholi				        13521031
