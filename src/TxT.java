@@ -52,6 +52,8 @@ public class TxT {
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             Operator.writeMatrix(writeMatrix,m);
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             if(Operator.isSquare(m)){
                 if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
@@ -80,6 +82,8 @@ public class TxT {
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             Operator.writeMatrix(writeMatrix,m);
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             if(Operator.isSquare(m)){
                 if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
@@ -106,7 +110,7 @@ public class TxT {
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
-            if(m[0].length!=m.length+1) {
+            if(m[0].length==m.length+1) {
                 if (DeterminanKofaktor.determinan(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)) == 0) {
                     writeMatrix.write("Matrix :\n");
                     Operator.printMatrix(m);
@@ -117,14 +121,16 @@ public class TxT {
                 } else {
                     writeMatrix.write("Matrix :\n");
                     System.out.println("Matrix:");
+                    Operator.printMatrix(m);
+                    System.out.println();
                     Operator.writeMatrix(writeMatrix,m);
                     writeMatrix.write("memiliki inverse:\n\n");
-                    Operator.writeMatrix(writeMatrix,InverseOBE.inverseMatrixOBE(m));
+                    Operator.writeMatrix(writeMatrix,InverseOBE.inverseMatrixOBE(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)));
                     writeMatrix.write("\n\n");
                     writeMatrix.write("dengan metode balikan, matriks ini memiliki hasil:\n");
                     double[] result = InverseSPL.matrixInverseSPL(m);
                     System.out.println("Memiliki inverse:");
-                    Operator.printMatrix(InverseOBE.inverseMatrixOBE(m));
+                    Operator.printMatrix(InverseOBE.inverseMatrixOBE(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)));
                     System.out.println();
                     System.out.println("dengan result");
                     Operator.printResultInverseSPL(result);

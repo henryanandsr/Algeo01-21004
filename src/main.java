@@ -98,7 +98,7 @@ public class main{
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
                             }
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if(TxT.writeGaussJordanSPL(targetFile,m)){
                                 System.out.println("matrix berhasil diproses");
@@ -139,7 +139,7 @@ public class main{
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
                             }
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if(TxT.writeInverseSPL(targetFile,m)){
                                 System.out.println("matrix berhasil diproses");
@@ -180,7 +180,7 @@ public class main{
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
                             }
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if(TxT.writeCramer(targetFile,m)){
                                 System.out.println("matrix berhasil diproses");
@@ -191,7 +191,7 @@ public class main{
                     }
                     break;
                 case 2:
-                    System.out.println("1. Determinan Kofaktor\n2.Determinan OBE");
+                    System.out.println("1.Determinan Kofaktor\n2.Determinan OBE");
                     System.out.print("masukkan pilihan: ");
                     pilDet = scan.nextInt();
                     while(pilDet<1&&pilDet>2){
@@ -218,7 +218,7 @@ public class main{
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
                             }
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if (TxT.writeDeterminanKofaktor(targetFile, m)) {
                                 System.out.println("matrix berhasil diproses");
@@ -245,7 +245,7 @@ public class main{
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
                             }
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if (TxT.writeDeterminanOBE(targetFile, m)) {
                                 System.out.println("matrix berhasil diproses");

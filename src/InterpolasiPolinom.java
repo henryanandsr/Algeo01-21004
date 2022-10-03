@@ -21,9 +21,9 @@ public class InterpolasiPolinom {
     public static double[] makeFungsi(double[][] arr){
         int i;
         double[][] matriksPolinom = makePolinom(arr);
-        Operator.printMatrix(matriksPolinom);
+        // Operator.printMatrix(matriksPolinom);
         double[][] matriksPolinomGJ = GaussJordan.matrixGaussJordan(matriksPolinom);
-        Operator.printMatrix(GaussJordan.matrixGaussJordan(matriksPolinomGJ));
+        // Operator.printMatrix(GaussJordan.matrixGaussJordan(matriksPolinomGJ));
         double[] fungsi = new double[matriksPolinomGJ.length]; 
         for (i=0;i<matriksPolinomGJ.length;i++){
             fungsi[i] = matriksPolinomGJ[i][matriksPolinomGJ[0].length - 1];

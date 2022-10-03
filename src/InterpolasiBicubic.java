@@ -4,8 +4,9 @@ public class InterpolasiBicubic {
         System.out.println(hitungFungsi(m, 0, 0));
         System.out.println(hitungFungsi(m, 0.5, 0.5));
         System.out.println(hitungFungsi(m, 0.25, 0.75));
-        System.out.println(hitungFungsi(m, 0.1, 0.9));
+        System.out.println(hitungFungsi(m, 1, 1));
 //        }
+
     }
     public static double[][] makeMatriksX(){
         int i,j,k,l,x;
@@ -33,39 +34,45 @@ public class InterpolasiBicubic {
         return m16;
     }
     //X = A^-1 * Y
-    public static double[] makeMatriksY(double[][] arr){
+    public static double[][] makeMatriksY(double[][] arr){
         int i,j;
-        double temp[] = new double[16];
+        double temp[][] = new double[16][1];
         int idx = 0;
         for(i=0;i<4;i++){
             for(j=0;j<4;j++){
-                temp[idx] = arr[j][i];
+                temp[idx][0] = arr[j][i];
                 idx++;
             }
         }
         return temp;
     }
     //tentukan nilai dari a
-    public static double[] makematriksA(double[][] arr){
+    public static double[][] makematriksA(double[][] arr){
         double[][] inversX = InverseOBE.inverseMatrixOBE(makeMatriksX());
-        double[] mY = makeMatriksY(arr);
-        double result[] = new double[16];
-        int i,j;
-        for (i=0;i<=15;i++){
-            for(j=0;j<=15;j++){
-                result[j] = inversX[i][j] * mY[j];
-            }
-        }
+        double[][] mY = makeMatriksY(arr);
+        double result[][] = new double[16][1];
+        result = Operator.multiplyMatrix(inversX,mY);
         return result;
     }
+    public static double[][] makeMatrixAFix(double[][] arr){
+        int i,j;
+        int x=0;
+        double res[][] = new double[4][4];
+        for(i=0;i<=3;i++){
+            for(j=0;j<=3;j++){
+                res[j][i] = arr[x][0];
+                x++;
+            }
+        }
+        return res;
+    }
     public static double hitungFungsi(double[][] arr, double x, double y){
-        int idx = 0;
         int i,j;
         double result = 0;
-        double[] matriksA = makematriksA(arr);
+        double[][] matriksA = makeMatrixAFix(makematriksA(arr));
         for (i=0;i<=3;i++){
             for(j=0;j<=3;j++){
-                result += matriksA[idx] * Math.pow(x, j) * Math.pow(y,i);
+                result += matriksA[j][i] * Math.pow(x, j) * Math.pow(y,i);
             }
         }
         return result;

@@ -5,7 +5,7 @@ public class DeterminanOBE {
     private static double constant=1;
     private static double det;
     //fungsi yang memeriksa jika ada baris/kolom berisi 0 semua (determinan=0)
-    private static boolean HasAll0RowCol(double[][] m){
+   private static boolean HasAll0RowCol(double[][] m){
         for (int i=0;i<m.length;i++){
             if (All0rowcol(m,true,i)){
                 return true;
