@@ -2,15 +2,6 @@ public class Gauss {
 
     private static Operator tools = new Operator();
 
-    public static void main(String[] args) {
-        double[][] m = {
-            {0, 0, 2, -1},
-            {2, 0, -2, -2},
-            {-1, 2, -4, 1},
-            {3, 0, 0, -3}
-        };
-        tools.printMatrix(matrixGauss(m));
-    }
     public static double[][] matrixGauss(double[][] m){
         int baris = m.length;
         for(int i=0;i<baris;i++){
