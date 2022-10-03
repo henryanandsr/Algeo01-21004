@@ -47,6 +47,7 @@ public class TxT {
         return isTrue;
     }
     public static boolean writeInverseAdjoin(String path, double[][] m){
+        System.out.println("\n\n===========================================INVERSE ADJOIN===========================================");
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
@@ -54,15 +55,16 @@ public class TxT {
             Operator.writeMatrix(writeMatrix,m);
             System.out.println("Matrix:");
             Operator.printMatrix(m);
+            System.out.println();
             if(Operator.isSquare(m)){
                 if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
                     writeMatrix.write("matrix tidak memiliki inverse karena determinan sama dengan 0\n\n");
                 }else{
                     m = InverseAdjoin.inverseMatrixAdjoin(m);
-                    System.out.println("memilki inverse:\n\n");
+                    System.out.println("memilki inverse:");
                     Operator.printMatrix(m);
-                    writeMatrix.write("dengan metode Adjoin matrix ini memiliki inverse:\n\n");
+                    writeMatrix.write("dengan metode Adjoin matrix ini memiliki inverse:\n");
                     Operator.writeMatrix(writeMatrix,m);
                     isTrue = true;
                 }
@@ -74,9 +76,11 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("===================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeInverseOBE(String path, double[][] m){
+        System.out.println("\n\n===========================================INVERSE OBE===========================================");
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
@@ -84,15 +88,16 @@ public class TxT {
             Operator.writeMatrix(writeMatrix,m);
             System.out.println("Matrix:");
             Operator.printMatrix(m);
+            System.out.println();
             if(Operator.isSquare(m)){
                 if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
                     writeMatrix.write("tidak memiliki inverse karena determinan sama dengan 0\n\n");
                 }else {
                     m = InverseOBE.inverseMatrixOBE(m);
-                    System.out.println("dengan metode OBE matrix ini memiliki inverse:\n\n");
+                    System.out.println("dengan metode OBE matrix ini memiliki inverse:");
                     Operator.printMatrix(m);
-                    writeMatrix.write("dengan metode OBE matrix ini memiliki inverse:\n\n");
+                    writeMatrix.write("dengan metode OBE matrix ini memiliki inverse:\n");
                     Operator.writeMatrix(writeMatrix,m);
                     isTrue = true;
                 }
@@ -104,10 +109,12 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("=================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeInverseSPL(String path,double[][] m){
         boolean isTrue = false;
+        System.out.println("\n\n===========================================INVERSE SPL===========================================");
         try {
             FileWriter writeMatrix = new FileWriter(path);
             if(m[0].length==m.length+1) {
@@ -150,6 +157,7 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("=================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeGaussSPL(String path,double[][] m){
@@ -195,6 +203,7 @@ public class TxT {
         return isTrue;
     }
     public static boolean writeCramer(String path, double[][] m){
+        System.out.println("\n\n===========================================CRAMER===========================================");
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
@@ -215,9 +224,11 @@ public class TxT {
         }catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("============================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeDeterminanKofaktor(String path,double[][] m){
+        System.out.println("\n\n===========================================DETERMINAN KOFAKTOR===========================================");
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
@@ -232,9 +243,11 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("=========================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeDeterminanOBE(String path,double[][] m){
+        System.out.println("\n\n===========================================DETERMINAN OBE===========================================");
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
@@ -249,9 +262,11 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("====================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeInterpolasiBikubik(String path,double[][] m){
+        System.out.println("\n\n===========================================INTERPOLASI BIKUBIK===========================================");
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
@@ -273,19 +288,21 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("=========================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeInterpolasiPolinom(String path, double[][] m){
+        System.out.println("\n\n===========================================INTERPOLASI POLINOM===========================================");
         boolean isTrue = false;
         try{
+            Scanner scon = new Scanner(System.in);
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             System.out.println("Matrix:");
             Operator.printMatrix(m);
             Operator.writeMatrix(writeMatrix,m);
-            Scanner scan = new Scanner(System.in);
             System.out.print("x = ");
-            double x = scan.nextDouble();
+            double x = scon.nextDouble();
             System.out.println();
             System.out.println("memiliki hasil interpolasi polinom: "+InterpolasiPolinom.hitungFungsi(m,x));
             writeMatrix.write("dengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
@@ -294,9 +311,11 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("=========================================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeRegresi(String path,double[][] m){
+        System.out.println("\n\n===========================================REGRESI===========================================");
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
@@ -311,6 +330,7 @@ public class TxT {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("=============================================================================================\n\n");
         return isTrue;
     }
 }
