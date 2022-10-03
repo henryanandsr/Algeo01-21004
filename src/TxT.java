@@ -106,7 +106,7 @@ public class TxT {
         boolean isTrue = false;
         try {
             FileWriter writeMatrix = new FileWriter(path);
-            if(m[0].length!=m.length+1) {
+            if(m[0].length==m.length+1) {
                 if (DeterminanKofaktor.determinan(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)) == 0) {
                     writeMatrix.write("Matrix :\n");
                     Operator.printMatrix(m);
