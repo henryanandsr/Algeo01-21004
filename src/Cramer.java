@@ -8,6 +8,10 @@
             double detInsert;
             double[][] inserted = new double[A.length][A[0].length];
             detA = DeterminanKofaktor.determinan(A);
+            if (detA==0){
+                System.out.println("Tidak bisa ditemukan hasil karena determinan matriks awal sama dengan nol");
+                return result;
+            }
             for (int j=0;j<A[0].length;j++){
                 inserted = insertBtoA(A, b, j);
                 detInsert = DeterminanKofaktor.determinan(inserted);
@@ -17,6 +21,10 @@
             detA = DeterminanOBE.determinan(A);
             double detInsert;
             double[][] inserted = new double[A.length][A[0].length];
+            if (detA==0){
+                System.out.println("Tidak bisa ditemukan hasil karena determinan matriks awal sama dengan nol");
+                return result;
+            }
             for (int j=0;j<A[0].length;j++){
                 inserted = insertBtoA(A, b, j);
                 detInsert = DeterminanKofaktor.determinan(inserted);
