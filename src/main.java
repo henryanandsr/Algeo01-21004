@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 public class main{
     private static double[][] m;
@@ -5,13 +6,13 @@ public class main{
     private static String targetFile;
     private static boolean isCompleted = false;
     private static Scanner scan = new Scanner(System.in);
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         System.out.println("===============================================================SELAMAT DATANG KE DALAM PROGRAM KELOMPOK KAMI :)))===============================================================");
         while(!isCompleted){
             menu.menu();
             int pilMenu = scan.nextInt();
             while (pilMenu<1&&pilMenu>7){
-                System.out.println("input tidak valid, masukkan kembali input");
+                System.out.println("input tidak valid, masukkan kembali input:");
                 pilMenu = scan.nextInt();
             }
             switch (pilMenu){
@@ -24,20 +25,39 @@ public class main{
                     }
                     switch (pilSpl){
                         case 1:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            while(col!=row+1){
-                                System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                            m = null;
+                            menu.bacaInputMatrix();
+                            int pilMat = scan.nextInt();
+                            if(pilMat==1) {
                                 System.out.print("masukkan jumlah baris matrix:");
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
                             }
-                            m = null;
-                            m = Operator.bacaMatriks(row,col);
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if(TxT.writeGaussSPL(targetFile,m)){
                                 System.out.println("matrix berhasil diproses");
@@ -46,19 +66,38 @@ public class main{
                             }
                             break;
                         case 2:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            while(col!=row+1){
-                                System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                            menu.bacaInputMatrix();
+                            m=null;
+                            pilMat = scan.nextInt();
+                            if(pilMat==1) {
                                 System.out.print("masukkan jumlah baris matrix:");
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
                             }
-                            m = null;
-                            m = Operator.bacaMatriks(row,col);
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
                             if(TxT.writeGaussJordanSPL(targetFile,m)){
@@ -68,12 +107,38 @@ public class main{
                             }
                             break;
                         case 3:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            m = null;
-                            m = Operator.bacaMatriks(row,col);
+                            m=null;
+                            menu.bacaInputMatrix();
+                            pilMat = scan.nextInt();
+                            if(pilMat==1) {
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
+                            }
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
                             if(TxT.writeInverseSPL(targetFile,m)){
@@ -83,12 +148,38 @@ public class main{
                             }
                             break;
                         case 4:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            m = null;
-                            m = Operator.bacaMatriks(row,col);
+                            m=null;
+                            menu.bacaInputMatrix();
+                            pilMat = scan.nextInt();
+                            if(pilMat==1) {
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                while (col != row + 1) {
+                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
+                                    System.out.print("masukkan jumlah baris matrix:");
+                                    row = scan.nextInt();
+                                    System.out.print("masukkan jumlah kolom matrix:");
+                                    col = scan.nextInt();
+                                }
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
+                            }
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
                             if(TxT.writeCramer(targetFile,m)){
@@ -109,12 +200,24 @@ public class main{
                     }
                     switch (pilDet) {
                         case 1:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            m = null;
-                            m = Operator.bacaMatriks(row, col);
+                            m=null;
+                            menu.bacaInputMatrix();
+                            int pilMat = scan.nextInt();
+                            if(pilMat==1) {
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
+                            }
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
                             if (TxT.writeDeterminanKofaktor(targetFile, m)) {
@@ -124,12 +227,24 @@ public class main{
                             }
                             break;
                         case 2:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            m = null;
-                            m = Operator.bacaMatriks(row, col);
+                            m=null;
+                            menu.bacaInputMatrix();
+                            pilMat = scan.nextInt();
+                            if(pilMat==1) {
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
+                            }
                             System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
                             targetFile = scan.next();
                             if (TxT.writeDeterminanOBE(targetFile, m)) {
@@ -150,13 +265,25 @@ public class main{
                     }
                     switch (pilInv) {
                         case 1:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            m = null;
-                            m = Operator.bacaMatriks(row, col);
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            m=null;
+                            menu.bacaInputMatrix();
+                            int pilMat = scan.nextInt();
+                            if(pilMat==1) {
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
+                            }
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if (TxT.writeInverseAdjoin(targetFile, m)) {
                                 System.out.println("matrix berhasil diproses");
@@ -165,13 +292,25 @@ public class main{
                             }
                             break;
                         case 2:
-                            System.out.print("masukkan jumlah baris matrix:");
-                            row = scan.nextInt();
-                            System.out.print("masukkan jumlah kolom matrix:");
-                            col = scan.nextInt();
-                            m = null;
-                            m = Operator.bacaMatriks(row, col);
-                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                            m=null;
+                            menu.bacaInputMatrix();
+                            pilMat = scan.nextInt();
+                            if(pilMat==1) {
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                m = Operator.bacaMatriks(row, col);
+                            }else if(pilMat==2){
+                                System.out.print("masukkan jumlah baris matrix:");
+                                row = scan.nextInt();
+                                System.out.print("masukkan jumlah kolom matrix:");
+                                col = scan.nextInt();
+                                System.out.println("masukkan nama file txt:");
+                                String file = scan.next();
+                                m = TxT.readMatrix(file,row,col);
+                            }
+                            System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                             targetFile = scan.next();
                             if (TxT.writeInverseOBE(targetFile, m)) {
                                 System.out.println("matrix berhasil diproses");
@@ -182,13 +321,21 @@ public class main{
                     }
                     break;
                 case 4:
-                    System.out.print("masukkan jumlah baris matrix:");
-                    row = scan.nextInt();
-                    System.out.print("masukkan jumlah kolom matrix:");
-                    col = scan.nextInt();
-                    m = null;
-                    m = Operator.bacaMatriks(row, col);
-                    System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                    m=null;
+                    menu.bacaInputMatrix();
+                    int pilMat = scan.nextInt();
+                    if(pilMat==1) {
+                        System.out.print("masukkan jumlah baris matrix:");
+                        row = scan.nextInt();
+                        m = Operator.bacaMatriks(row, 2);
+                    }else if(pilMat==2){
+                        System.out.print("masukkan jumlah baris matrix:");
+                        row = scan.nextInt();
+                        System.out.println("masukkan nama file txt:");
+                        String file = scan.next();
+                        m = TxT.readMatrix(file,row,2);
+                    }
+                    System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                     targetFile = scan.next();
                     if(TxT.writeInterpolasiPolinom(targetFile,m)){
                         System.out.println("matrix berhasil diproses");
@@ -197,13 +344,17 @@ public class main{
                     }
                     break;
                 case 5:
-                    System.out.print("masukkan jumlah baris matrix:");
-                    row = scan.nextInt();
-                    System.out.print("masukkan jumlah kolom matrix:");
-                    col = scan.nextInt();
-                    m = null;
-                    m = Operator.bacaMatriks(row, col);
-                    System.out.print("masukkan nama lokasi penyimpanan beserta nama txt");
+                    m=null;
+                    menu.bacaInputMatrix();
+                    pilMat = scan.nextInt();
+                    if(pilMat==1) {
+                        m = Operator.bacaMatriks(4, 4);
+                    }else if(pilMat==2){
+                        System.out.println("masukkan nama file txt:");
+                        String file = scan.next();
+                        m = TxT.readMatrix(file,4,4);
+                    }
+                    System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                     targetFile = scan.next();
                     if(TxT.writeInterpolasiBikubik(targetFile,m)){
                         System.out.println("matrix berhasil diproses");
@@ -212,6 +363,31 @@ public class main{
                     }
                     break;
                 case 6:
+                    m=null;
+                    menu.bacaInputMatrix();
+                    pilMat = scan.nextInt();
+                    if(pilMat==1) {
+                        System.out.print("masukkan jumlah baris matrix:");
+                        row = scan.nextInt();
+                        System.out.print("masukkan jumlah kolom matrix:");
+                        col = scan.nextInt();
+                        m = Operator.bacaMatriks(row, col);
+                    }else if(pilMat==2){
+                        System.out.print("masukkan jumlah baris matrix:");
+                        row = scan.nextInt();
+                        System.out.print("masukkan jumlah kolom matrix:");
+                        col = scan.nextInt();
+                        System.out.println("masukkan nama file txt:");
+                        String file = scan.next();
+                        m = TxT.readMatrix(file,row,col);
+                    }
+                    System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
+                    targetFile = scan.next();
+                    if(TxT.writeRegresi(targetFile,m)){
+                        System.out.println("matrix berhasil diproses");
+                    }else{
+                        System.out.println("matrix gagal diproses");
+                    }
                     break;
                 case 7:
                     isCompleted = true;

@@ -2,7 +2,21 @@ import static java.lang.Math.abs;
 
 public class DeterminanOBE {
     public static void main(String[] args){
+<<<<<<< HEAD
         double[][] m = {{1,2,3},{4,5,6},{7,8,9}};
+=======
+        double [][] m ={
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        };
+        // double[][] m={
+        //     {0,0,2,-1},
+        //     {2,0,-2,-2},
+        //     {-1,2,-4,1},
+        //     {3,0,0,-3}
+        // };
+>>>>>>> 4f8f5bc8cd8ce5782c0e0f145edefe11ea4f24f6
         System.out.println(determinan(m));
     }
     private static int sign=1;
@@ -92,7 +106,7 @@ public class DeterminanOBE {
 
     private static void obe(double[][] m){
     double basis[] = new double[m[0].length];
-    for (int idxBasis=0;idxBasis<m.length;idxBasis++){   //idxBasis = row basis sekarang
+    for (int idxBasis=0;idxBasis<m.length-1;idxBasis++){   //idxBasis = row basis sekarang
         //swap basis ke baris non 0 kalau 0 (kalau ngga, lanjut)
         if (m[idxBasis][idxBasis]==0) {
             int scanNot0 = idxBasis+1;
@@ -126,13 +140,19 @@ public class DeterminanOBE {
         mCopy = Operator.copyMatriks(m, mCopy);
         if (HasAll0RowCol(mCopy)){
             det = 0;
-        } else {
+        } else if (m.length != m[0].length){
+            System.out.println("Error: Matrix tidak square");
+            return det;
+        }else{
             det = 1;
             obe(mCopy);
             for (int i=0;i<m.length;i++){
                 det = det * mCopy[i][i];
             }   
             det = det*sign/constant;
+        }
+        if (det == 0){
+            det = abs(det);
         }
         return det;
     }
