@@ -33,26 +33,12 @@ public class main{
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 m = Operator.bacaMatriks(row, col);
                             }else if(pilMat==2){
                                 System.out.print("masukkan jumlah baris matrix:");
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 System.out.println("masukkan nama file txt:");
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
@@ -74,26 +60,12 @@ public class main{
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 m = Operator.bacaMatriks(row, col);
                             }else if(pilMat==2){
                                 System.out.print("masukkan jumlah baris matrix:");
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 System.out.println("masukkan nama file txt:");
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
@@ -115,26 +87,12 @@ public class main{
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 m = Operator.bacaMatriks(row, col);
                             }else if(pilMat==2){
                                 System.out.print("masukkan jumlah baris matrix:");
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 System.out.println("masukkan nama file txt:");
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
@@ -156,26 +114,12 @@ public class main{
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 m = Operator.bacaMatriks(row, col);
                             }else if(pilMat==2){
                                 System.out.print("masukkan jumlah baris matrix:");
                                 row = scan.nextInt();
                                 System.out.print("masukkan jumlah kolom matrix:");
                                 col = scan.nextInt();
-                                while (col != row + 1) {
-                                    System.out.println("matrix tidak valid untuk dijadikan gauss, masukkan kembali data yang valid");
-                                    System.out.print("masukkan jumlah baris matrix:");
-                                    row = scan.nextInt();
-                                    System.out.print("masukkan jumlah kolom matrix:");
-                                    col = scan.nextInt();
-                                }
                                 System.out.println("masukkan nama file txt:");
                                 String file = scan.next();
                                 m = TxT.readMatrix(file,row,col);
