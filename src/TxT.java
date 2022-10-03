@@ -291,7 +291,7 @@ public class TxT {
             System.out.println("dengan metode cramer, persamaan ini memilki hasil:");
             double[] result = Cramer.cramer(m);
             Operator.printResultInverseSPL(result);
-            for(int i=0;i<m.length-1;i++){
+            for(int i=0;i<m.length;i++){
                 writeMatrix.write("x"+(i+1)+" = "+result[i]+"\n");
             }
             writeMatrix.write("\n\n");
