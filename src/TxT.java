@@ -204,7 +204,7 @@ public class TxT {
                         writeMatrix.write("-"+m[i][cobs[j]]+param);
                         param++;
                     }
-                    writeMatrix.write("\n\n");
+                    writeMatrix.write("\n");
                 }
             }else{
                 System.out.println("===============================================================================================\n\n");
