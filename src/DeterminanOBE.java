@@ -103,8 +103,6 @@ public class DeterminanOBE {
     private static void obe(double[][] m){
     double basis[] = new double[m[0].length];
     for (int idxBasis=0;idxBasis<m.length-1;idxBasis++){   //idxBasis = row basis sekarang
-        Operator.printMatrix(m);
-        System.out.println();
         //swap basis ke baris non 0 kalau 0 (kalau ngga, lanjut)
         if (m[idxBasis][idxBasis]==0) {
             int scanNot0 = idxBasis+1;
@@ -132,8 +130,6 @@ public class DeterminanOBE {
             elimRow++;
         }
     }
-    Operator.printMatrix(m);
-    System.out.println();
     }
     public static double determinan(double[][] m){
         double[][] mCopy = new double[m.length][m[0].length];
