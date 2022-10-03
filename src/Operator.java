@@ -231,4 +231,21 @@ public class Operator {
         }
         return mtr;
     }
+    public static void writeMatrix(FileWriter w,double[][] m){
+        try {
+            for (int i = 0; i < m.length; i++) {
+                for (int j = 0; j < m[0].length; j++) {
+                    if (j == 0) {
+                        w.write(Double.toString(m[i][j]));
+                    } else if (j > 0) {
+                        w.write(" " + m[i][j]);
+                    }
+                }
+                w.write("\n");
+            }
+            w.write("\n\n");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

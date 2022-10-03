@@ -1,23 +1,5 @@
 public class Regresi {
-    public static void main(String[] args) {  
-        double[][] m={
-            { 0, 0, 0, 0, 3 }, 
-            { 3, 2, 1, 10, 2 }, 
-            { 5, 10, 0, 0, 0 },
-            { 0, 0, 0, 13, 12 }
-        };
-        // double[][] m1 = {
-        //     {0, 0, 2},
-        //     {2, 0, -2},
-        //     {-1, 2, -4},
-        //     {3, 0, 0}
-        // };
-        // double[][] mx = new double[m1.length][m[0].length];
-        // mx = Operator.multiplyMatrix(m1, m);
-        // Operator.printMatrix(mx);
-        regresi(m);
-    }
-    public static void regresi(double[][] m){
+    public static double[][] regresi(double[][] m){
         double[][] X = Operator.getMatrix(m,0,0,m.length-1,m[0].length-2);
         double[][] Y = Operator.getMatrix(m, 0, m[0].length-1, m.length-1, m[0].length-1);
         //misalkan matrix x adalah matrix yang berisi koefisien variabel independen, dan matrix y berisi nilai dependen
@@ -40,7 +22,6 @@ public class Regresi {
         //Menemukan beta
         double[][] merged;
         merged = Operator.mergeMatrix(A,B);
-        Gauss.matrixGauss(merged);
-        Operator.printMatrix(merged);
+        return Gauss.matrixGauss(merged);
     }
 }

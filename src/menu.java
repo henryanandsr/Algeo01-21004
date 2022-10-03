@@ -17,4 +17,10 @@ public class menu {
         System.out.println("4. Kaidah Cramer");
         System.out.print("Pilih menu : ");
     }
+    public static void bacaInputMatrix(){
+        System.out.println("pilih pembaca matrix");
+        System.out.println("1. baca file txt");
+        System.out.println("2. baca melalui keyboard system");
+        System.out.print("masukkan pilihan: ");
+    }
 }
