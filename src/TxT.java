@@ -371,15 +371,27 @@ public class TxT {
         try{
             Scanner scon = new Scanner(System.in);
             FileWriter writeMatrix = new FileWriter(path);
+            FileWriter writefungsi = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             System.out.println("Matrix:");
             Operator.printMatrix(m);
             Operator.writeMatrix(writeMatrix,m);
+            InterpolasiPolinom.tulisFungsi(InterpolasiPolinom.makeFungsi(m));
             System.out.print("x = ");
             double x = scon.nextDouble();
             System.out.println();
             System.out.println("memiliki hasil interpolasi polinom: "+InterpolasiPolinom.hitungFungsi(m,x));
-            writeMatrix.write("dengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
+            double[] fungsi = InterpolasiPolinom.makeFungsi(m);
+            int i;
+            writeMatrix.write("f(x) = " + fungsi[0]);
+            for(i=0;i<fungsi.length;i++){
+                if (fungsi[i]<0){
+                    writeMatrix.write(fungsi[i]+"x^"+i);
+                } else{
+                    writeMatrix.write("+"+fungsi[i]+"x^"+i);
+                }
+            }
+            writeMatrix.write("\ndengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
             writeMatrix.close();
             isTrue = true;
         } catch (IOException e) {

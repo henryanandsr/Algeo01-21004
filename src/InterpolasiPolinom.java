@@ -39,4 +39,16 @@ public class InterpolasiPolinom {
         }
         return result;
     }
+    public static void tulisFungsi(double[] fungsi){
+        int z;
+        System.out.print("f(x) = " + fungsi[0]);
+        for(z=1;z<fungsi.length;z++){
+            if (fungsi[z]<0){
+                System.out.print(fungsi[z]+"x^"+z);
+            } else{
+                System.out.print("+"+fungsi[z]+"x^"+z);
+            }
+        }
+        System.out.println();
+    }
 }
