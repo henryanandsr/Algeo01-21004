@@ -194,6 +194,22 @@ public class TxT {
                 writeMatrix.close();
                 System.out.println("===============================================================================================\n\n");
                 return false;
+            }else if(Operator.isSPLRowNoll(m)){
+                m = GaussJordan.matrixGaussJordan(m);
+                char param = 'a';
+                int[] cobs = Operator.whichRowNoll(m);
+                for(int i=cobs[0];i>=0;i--){
+                    writeMatrix.write("x"+(i+1)+" = "+m[i][m.length]);
+                    for (int j=0;j<cobs.length;j++){
+                        writeMatrix.write("-"+m[i][cobs[j]]+param);
+                        param++;
+                    }
+                    writeMatrix.write("\n\n");
+                }
+            }else{
+                System.out.println("===============================================================================================\n\n");
+                writeMatrix.close();
+                return false;
             }
             writeMatrix.write("\n\n");
             writeMatrix.close();
@@ -234,6 +250,21 @@ public class TxT {
                 writeMatrix.write("matrix ini tidak memenuhi SPL Gauss Jordan");
                 writeMatrix.close();
                 System.out.println("===============================================================================================\n\n");
+                return false;
+            }else if(Operator.isSPLRowNoll(m)){
+                char param = 'a';
+                int[] cobs = Operator.whichRowNoll(m);
+                for(int i=cobs[0];i>=0;i--){
+                    writeMatrix.write("x"+(i+1)+" = "+m[i][m.length]);
+                    for (int j=0;j<cobs.length;j++){
+                        writeMatrix.write("-"+m[i][cobs[j]]+param);
+                        param++;
+                    }
+                    writeMatrix.write("\n\n");
+                }
+            }else {
+                System.out.println("===============================================================================================\n\n");
+                writeMatrix.close();
                 return false;
             }
             writeMatrix.write("\n\n");

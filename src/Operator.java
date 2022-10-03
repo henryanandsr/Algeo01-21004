@@ -282,4 +282,36 @@ public class Operator {
         }
         return isTrue;
     }
+    public static boolean isSPLRowNoll(double[][] m){
+        boolean isTrue = false;
+        for(int i=0;i<m.length;i++){
+            int all=0;
+            for (int j=0;j<m[0].length;j++){
+                if(m[i][j]!=0){
+                    all++;
+                }
+            }
+            if(all==0){
+                return true;
+            }
+        }
+        return isTrue;
+    }
+    public static int[] whichRowNoll(double[][] m){
+        int[] anu= null;
+        int aw = 0;
+        for(int i=0;i<m.length;i++){
+            int all=0;
+            for (int j=0;j<m[0].length;j++){
+                if(m[i][j]!=0){
+                    all++;
+                }
+            }
+            if(all==0){
+                anu[aw]=i;
+                aw++;
+            }
+        }
+        return anu;
+    }
 }
