@@ -256,7 +256,7 @@ public class main{
                     }
                     break;
                 case 3:
-                    System.out.println("1. Inverse Adjoin\n2.Inverse OBE");
+                    System.out.println("1.Inverse Adjoin\n2.Inverse OBE");
                     System.out.print("masukkan pilihan: ");
                     pilInv = scan.nextInt();
                     while(pilInv<1&&pilInv>2){
