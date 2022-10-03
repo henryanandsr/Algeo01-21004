@@ -117,6 +117,8 @@ public class TxT {
                 } else {
                     writeMatrix.write("Matrix :\n");
                     System.out.println("Matrix:");
+                    Operator.printMatrix(m);
+                    System.out.println();
                     Operator.writeMatrix(writeMatrix,m);
                     writeMatrix.write("memiliki inverse:\n\n");
                     Operator.writeMatrix(writeMatrix,InverseOBE.inverseMatrixOBE(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)));
