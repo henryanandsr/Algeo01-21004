@@ -248,4 +248,38 @@ public class Operator {
             throw new RuntimeException(e);
         }
     }
+    public static boolean isDiagonalSPLNotNoll(double[][] m){
+        boolean isTrue = false;
+        int jumNoll = 0;
+        for(int i=0;i<m.length;i++){
+            int notNoll=0;
+            for(int k=m.length-1;k>=0;k--){
+                if(m[i][k]!=0){
+                    notNoll=k;
+                }
+            }
+            if(notNoll!=0||(m[0][0]!=0&&notNoll==0)){
+                jumNoll++;
+            }
+        }
+        if(jumNoll==m.length){
+            isTrue=true;
+        }
+        return isTrue;
+    }
+    public static boolean isSPLRowNollAndResultNot(double[][] m){
+        boolean isTrue = false;
+        for (int i=0;i<m.length;i++){
+            int all=0;
+            for (int j=0;j<m.length;j++){
+                if(m[i][j]!=0){
+                    all++;
+                }
+            }
+            if(all==0&&m[i][m.length]!=0){
+                return true;
+            }
+        }
+        return isTrue;
+    }
 }

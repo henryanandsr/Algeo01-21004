@@ -161,17 +161,39 @@ public class TxT {
         return isTrue;
     }
     public static boolean writeGaussSPL(String path,double[][] m){
+        System.out.println("\n\n===========================================GAUSS SPL===========================================");
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             Operator.writeMatrix(writeMatrix,m);
-            writeMatrix.write("dengan gauss:\n");
-            Operator.writeMatrix(writeMatrix,Gauss.matrixGauss(m));
-            writeMatrix.write("memiliki hasil SPL:\n");
-            double[][] result = GaussJordan.matrixGaussJordan(m);
-            for(int i=0;i<m.length-1;i++){
-                writeMatrix.write("x"+(i+1)+" = "+result[i][m.length]+"\n");
+            System.out.println("Matrix: ");
+            Operator.printMatrix(m);
+            if(m[0].length==m.length+1){
+                m = Gauss.matrixGauss(m);
+            }else {
+                writeMatrix.write("matrix ini tidak bisa menggunakan SPL Gauss\n\n");
+                writeMatrix.close();
+                System.out.println("===============================================================================================\n\n");
+                return false;
+            }
+            if(Operator.isDiagonalSPLNotNoll(m)) {
+                writeMatrix.write("dengan gauss:\n");
+                Operator.writeMatrix(writeMatrix,m);
+                writeMatrix.write("memiliki hasil SPL:\n");
+                System.out.println("dengan gauss:");
+                Operator.printMatrix(m);
+                double[][] result = GaussJordan.matrixGaussJordan(m);
+                for (int i = 0; i < result.length; i++) {
+                    writeMatrix.write("x" + (i + 1) + " = " + result[i][result.length] + "\n");
+                }
+                System.out.println("memiliki hasil:");
+                Operator.printResultGaussJordan(result);
+            }else if(Operator.isSPLRowNollAndResultNot(m)){
+                writeMatrix.write("matrix ini tidak memenuhi SPL Gauss");
+                writeMatrix.close();
+                System.out.println("===============================================================================================\n\n");
+                return false;
             }
             writeMatrix.write("\n\n");
             writeMatrix.close();
@@ -179,20 +201,40 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("===============================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeGaussJordanSPL(String path,double[][] m){
+        System.out.println("\n\n===========================================GAUSS JORDAN===========================================");
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             Operator.writeMatrix(writeMatrix,m);
-            writeMatrix.write("dengan gauss jordan:\n");
-            Operator.writeMatrix(writeMatrix,GaussJordan.matrixGaussJordan(m));
-            writeMatrix.write("memiliki hasil SPL:\n");
-            double[][] result = GaussJordan.matrixGaussJordan(m);
-            for(int i=0;i<m.length-1;i++){
-                writeMatrix.write("x"+(i+1)+" = "+result[i][m.length]+"\n");
+            if(m[0].length==m.length+1){
+                m = GaussJordan.matrixGaussJordan(m);
+            }else {
+                writeMatrix.write("matrix ini tidak bisa menggunakan SPL Gauss Jordan\n\n");
+                writeMatrix.close();
+                System.out.println("===============================================================================================\n\n");
+                return false;
+            }
+            if(Operator.isDiagonalSPLNotNoll(m)) {
+                writeMatrix.write("dengan gauss jordan:\n");
+                Operator.writeMatrix(writeMatrix,m);
+                writeMatrix.write("memiliki hasil SPL:\n");
+                System.out.println("dengan gauss jordan:");
+                Operator.printMatrix(m);
+                for (int i = 0; i < m.length; i++) {
+                    writeMatrix.write("x" + (i + 1) + " = " + m[i][m.length] + "\n");
+                }
+                System.out.println("memiliki hasil:");
+                Operator.printResultGaussJordan(m);
+            }else if(Operator.isSPLRowNollAndResultNot(m)){
+                writeMatrix.write("matrix ini tidak memenuhi SPL Gauss Jordan");
+                writeMatrix.close();
+                System.out.println("===============================================================================================\n\n");
+                return false;
             }
             writeMatrix.write("\n\n");
             writeMatrix.close();
@@ -200,6 +242,7 @@ public class TxT {
         } catch (IOException e) {
             System.out.println("path tidak ditemukan");
         }
+        System.out.println("===============================================================================================\n\n");
         return isTrue;
     }
     public static boolean writeCramer(String path, double[][] m){
