@@ -119,12 +119,12 @@ public class TxT {
                     System.out.println("Matrix:");
                     Operator.writeMatrix(writeMatrix,m);
                     writeMatrix.write("memiliki inverse:\n\n");
-                    Operator.writeMatrix(writeMatrix,InverseOBE.inverseMatrixOBE(m));
+                    Operator.writeMatrix(writeMatrix,InverseOBE.inverseMatrixOBE(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)));
                     writeMatrix.write("\n\n");
                     writeMatrix.write("dengan metode balikan, matriks ini memiliki hasil:\n");
                     double[] result = InverseSPL.matrixInverseSPL(m);
                     System.out.println("Memiliki inverse:");
-                    Operator.printMatrix(InverseOBE.inverseMatrixOBE(m));
+                    Operator.printMatrix(InverseOBE.inverseMatrixOBE(Operator.getMatrix(m, 0, 0, m.length - 1, m.length - 1)));
                     System.out.println();
                     System.out.println("dengan result");
                     Operator.printResultInverseSPL(result);
