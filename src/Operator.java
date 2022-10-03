@@ -254,16 +254,13 @@ public class Operator {
         for(int i=0;i<m.length;i++){
             int notNoll=0;
             for(int k=m.length-1;k>=0;k--){
-                if(m[i][k]!=0){
-                    notNoll=k;
+                if(m[i][k]==0){
+                    notNoll++;
                 }
             }
-            if(notNoll!=0||(m[0][0]!=0&&notNoll==0)){
-                jumNoll++;
+            if(notNoll==m.length){
+                return true;
             }
-        }
-        if(jumNoll==m.length){
-            isTrue=true;
         }
         return isTrue;
     }
