@@ -27,7 +27,7 @@ link laporan : https://docs.google.com/document/d/18O3-owwrzguRTedvLrO-TcdnJSrLO
 # Language
 Java
 
-# AUTOR
+# AUTHOR
 Henry Anand Septian Radityo		13521004
 
 Christophorus Dharma Winata		13521009
