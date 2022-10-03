@@ -177,7 +177,7 @@ public class TxT {
                 System.out.println("===============================================================================================\n\n");
                 return false;
             }
-            if(Operator.isDiagonalSPLNotNoll(m)) {
+            if(!Operator.isDiagonalSPLNotNoll(m)) {
                 writeMatrix.write("dengan gauss:\n");
                 Operator.writeMatrix(writeMatrix,m);
                 writeMatrix.write("memiliki hasil SPL:\n");
@@ -235,7 +235,7 @@ public class TxT {
                 System.out.println("===============================================================================================\n\n");
                 return false;
             }
-            if(Operator.isDiagonalSPLNotNoll(m)) {
+            if(!Operator.isDiagonalSPLNotNoll(m)) {
                 writeMatrix.write("dengan gauss jordan:\n");
                 Operator.writeMatrix(writeMatrix,m);
                 writeMatrix.write("memiliki hasil SPL:\n");
@@ -262,11 +262,13 @@ public class TxT {
                     }
                     writeMatrix.write("\n\n");
                 }
-            }else {
+            }
+            else {
                 System.out.println("===============================================================================================\n\n");
                 writeMatrix.close();
                 return false;
             }
+
             writeMatrix.write("\n\n");
             writeMatrix.close();
             isTrue = true;
@@ -371,15 +373,27 @@ public class TxT {
         try{
             Scanner scon = new Scanner(System.in);
             FileWriter writeMatrix = new FileWriter(path);
+            FileWriter writefungsi = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             System.out.println("Matrix:");
             Operator.printMatrix(m);
             Operator.writeMatrix(writeMatrix,m);
+            InterpolasiPolinom.tulisFungsi(InterpolasiPolinom.makeFungsi(m));
             System.out.print("x = ");
             double x = scon.nextDouble();
             System.out.println();
             System.out.println("memiliki hasil interpolasi polinom: "+InterpolasiPolinom.hitungFungsi(m,x));
-            writeMatrix.write("dengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
+            double[] fungsi = InterpolasiPolinom.makeFungsi(m);
+            int i;
+            writeMatrix.write("f(x) = " + fungsi[0]);
+            for(i=0;i<fungsi.length;i++){
+                if (fungsi[i]<0){
+                    writeMatrix.write(fungsi[i]+"x^"+i);
+                } else{
+                    writeMatrix.write("+"+fungsi[i]+"x^"+i);
+                }
+            }
+            writeMatrix.write("\ndengan \nx = "+x+"\nmemiliki hasil :"+InterpolasiPolinom.hitungFungsi(m,x)+"\n\n");
             writeMatrix.close();
             isTrue = true;
         } catch (IOException e) {
