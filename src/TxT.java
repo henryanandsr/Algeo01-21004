@@ -449,10 +449,22 @@ public class TxT {
         boolean isTrue = false;
         try{
             FileWriter writeMatrix = new FileWriter(path);
+            double[][] regresi = Regresi.regresi(m);
             System.out.println("Matrix:");
             Operator.printMatrix(m);
             System.out.println("memiliki regresi:");
-            Operator.printMatrix(Regresi.regresi(m));
+            Operator.printMatrix(regresi);
+            System.out.print("f(x) = ");
+            for (int i = 0; i < regresi.length; i++){
+                if (i == 0){
+                    System.out.print(regresi[0][regresi[0].length-1] + " ");
+                } else if(i<regresi.length-1){
+                    System.out.print("+ " + regresi[i][regresi[0].length-1] + "x" + (i+1) + " ");
+                } else {
+                    System.out.print("+ " + regresi[regresi.length-1][regresi[0].length-1] + "x" + (i+1));
+                }
+            System.out.println();
+            }
             writeMatrix.write("Matrix:\n\n");
             Operator.writeMatrix(writeMatrix,m);
             writeMatrix.write("memliki regresi\n\n");
