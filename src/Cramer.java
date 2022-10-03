@@ -1,16 +1,4 @@
  public class Cramer{
-    public static void main(String[] args){
-        double[][] m = {
-            {34.0, 56.0, 3.0, 30.0, 6.0},
-            {56.0, 104.0, 2.0, 20.0, 4.0},
-            {3.0, 2.0, 1.0, 10.0, 2.0},
-            {30.0, 20.0, 10.0, 100.0, 20.0}
-        };
-        double[] x = cramer(m);
-        for (int i=0;i<x.length;i++){
-            System.out.print(x[i]+" ");
-        }
-    }
     public static double[] cramer(double[][] m) {
         double detA;
         double[][] A = Operator.getMatrix(m,0,0,m.length-1,m[0].length-2);
