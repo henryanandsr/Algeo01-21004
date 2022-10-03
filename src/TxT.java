@@ -52,6 +52,8 @@ public class TxT {
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             Operator.writeMatrix(writeMatrix,m);
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             if(Operator.isSquare(m)){
                 if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
@@ -80,6 +82,8 @@ public class TxT {
             FileWriter writeMatrix = new FileWriter(path);
             writeMatrix.write("Matrix :\n");
             Operator.writeMatrix(writeMatrix,m);
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
             if(Operator.isSquare(m)){
                 if(DeterminanKofaktor.determinan(m)==0){
                     System.out.println("matrix tidak memiliki inverse karena determinan sama dengan 0");
