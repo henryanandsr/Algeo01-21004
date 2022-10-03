@@ -288,23 +288,33 @@ public class main{
                     }
                     break;
                 case 5:
-                    m=null;
-                    menu.bacaInputMatrix();
-                    pilMat = scan.nextInt();
-                    if(pilMat==1) {
-                        m = Operator.bacaMatriks(4, 4);
-                    }else if(pilMat==2){
-                        System.out.println("masukkan nama file txt:");
-                        String file = scan.next();
-                        m = TxT.readMatrix(file,4,4);
-                    }
+                m=null;
+                double xfile,yfile;
+                menu.bacaInputMatrix();
+                pilMat = scan.nextInt();
+                if(pilMat==1) {
+                    m = Operator.bacaMatriks(4, 4);
                     System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
                     targetFile = scan.next();
-                    if(TxT.writeInterpolasiBikubik(targetFile,m)){
+                    if(TxT.writeInterpolasiBikubikKeyboard(targetFile,m)){
                         System.out.println("matrix berhasil diproses");
                     }else{
                         System.out.println("matrix gagal diproses");
                     }
+                }else if(pilMat==2){
+                    System.out.println("masukkan nama file txt:");
+                    String file = scan.next();
+                    m = TxT.readMatrix(file,4,4);
+                    xfile = TxT.readBicubic(file)[4][0];
+                    yfile = TxT.readBicubic(file)[4][1];
+                    System.out.print("masukkan nama lokasi penyimpanan beserta nama txt: ");
+                    targetFile = scan.next();
+                    if(TxT.writeInterpolasiBikubikFile(targetFile,m,xfile,yfile)){
+                        System.out.println("matrix berhasil diproses");
+                    }else{
+                        System.out.println("matrix gagal diproses");
+                    }
+                }
                     break;
                 case 6:
                     m=null;

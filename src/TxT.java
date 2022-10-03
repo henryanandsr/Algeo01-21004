@@ -24,6 +24,26 @@ public class TxT {
         }
         return m;
     }
+    public static double[][] readBicubic(String path) throws IOException {
+        double[][] m = new double[5][4];
+        FileReader targetRead = null;
+        try{
+            targetRead = new FileReader(path);
+            Scanner scan = new Scanner(targetRead);
+            for(int i=0;i<4;i++){
+                for(int j=0;j<4;j++){
+                    m[i][j] = scan.nextDouble();
+                }
+            }
+            m[4][0] = scan.nextDouble();
+            m[4][1] = scan.nextDouble();
+            scan.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("path yang dimasukkan tidak benar");
+            return null;
+        }
+        return m;
+    }
     public static boolean writeMatrix(String path,double[][] m){
         boolean isTrue = false;
         try{
@@ -341,7 +361,7 @@ public class TxT {
         System.out.println("====================================================================================================\n\n");
         return isTrue;
     }
-    public static boolean writeInterpolasiBikubik(String path,double[][] m){
+    public static boolean writeInterpolasiBikubikKeyboard(String path,double[][] m){
         System.out.println("\n\n===========================================INTERPOLASI BIKUBIK===========================================");
         boolean isTrue = false;
         try{
@@ -352,10 +372,32 @@ public class TxT {
             Operator.writeMatrix(writeMatrix,m);
             Scanner scan = new Scanner(System.in);
             System.out.print("x = ");
-            int x = scan.nextInt();
+            double x = scan.nextDouble();
             System.out.println();
             System.out.print("y = ");
-            int y = scan.nextInt();
+            double y = scan.nextDouble();
+            System.out.println();
+            System.out.println("memiliki hasil interpolasi bikubik: "+InterpolasiBicubic.hitungFungsi(m,x,y));
+            writeMatrix.write("dengan \nx = "+x+"\ny = "+y+"\nmemiliki hasil :"+InterpolasiBicubic.hitungFungsi(m,x,y)+"\n\n");
+            writeMatrix.close();
+            isTrue = true;
+        } catch (IOException e) {
+            System.out.println("path tidak ditemukan");
+        }
+        System.out.println("=========================================================================================================\n\n");
+        return isTrue;
+    }
+    public static boolean writeInterpolasiBikubikFile(String path,double[][] m, double x, double y){
+        System.out.println("\n\n===========================================INTERPOLASI BIKUBIK===========================================");
+        boolean isTrue = false;
+        try{
+            FileWriter writeMatrix = new FileWriter(path);
+            writeMatrix.write("Matrix :\n");
+            System.out.println("Matrix:");
+            Operator.printMatrix(m);
+            Operator.writeMatrix(writeMatrix,m);
+            Scanner scan = new Scanner(System.in);
+            System.out.println();
             System.out.println();
             System.out.println("memiliki hasil interpolasi bikubik: "+InterpolasiBicubic.hitungFungsi(m,x,y));
             writeMatrix.write("dengan \nx = "+x+"\ny = "+y+"\nmemiliki hasil :"+InterpolasiBicubic.hitungFungsi(m,x,y)+"\n\n");
