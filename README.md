@@ -8,7 +8,7 @@ Institut Teknologi Bandung
 
 Semester I Tahun 2020/2021
 
-#DESKRIPSI
+# DESKRIPSI
 
 Program ini bisa menjalankan hal berikut:
 
@@ -24,10 +24,10 @@ lalu setelah selesai akan menyimpan hasil pada file txt
 
 link laporan : https://docs.google.com/document/d/18O3-owwrzguRTedvLrO-TcdnJSrLOhPOHTVo4oCkHSA/edit
 
-#Languange
+# Language
 Java
 
-#AUTOR
+# AUTOR
 Henry Anand Septian Radityo		13521004
 Christophorus Dharma Winata		13521009
 Fahrian Afdholi				        13521031
